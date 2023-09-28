@@ -14,8 +14,8 @@
 
 """A sample Velocitas vehicle app for adjusting seat position."""
 
-import logging
 import json
+import logging
 
 from vehicle import Vehicle  # type: ignore
 from velocitas_sdk.util.log import (  # type: ignore
@@ -56,7 +56,9 @@ class SeatAdjusterApp(VehicleApp):
         """Run when the vehicle app starts"""
         # TODO subscribe to Vehicle.Cabin.Seat.Row1.Pos1.Position and provide
         # on_seat_position_changed as callback.
-        await self.Vehicle.Cabin.Seat.Row1.Pos1.Position.subscribe(self.on_seat_position_changed)
+        await self.Vehicle.Cabin.Seat.Row1.Pos1.Position.subscribe(
+            self.on_seat_position_changed
+        )
         pass
 
     async def on_seat_position_changed(self, data: DataPointReply):
